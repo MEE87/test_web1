@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WEB ANIMATIONS — 動畫展示</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;600;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cursor glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <span class="nav-logo">WEB<span class="accent">.</span>ANIM</span>
+    <ul class="nav-links">
+      <li><a href="#text">文字</a></li>
+      <li><a href="#parallax">視差</a></li>
+      <li><a href="#shapes">形狀</a></li>
+      <li><a href="#interactive">互動</a></li>
+      <li><a href="#gallery">相片</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-sub reveal-char">WEBSITES THAT MOVE</p>
+      <h1 class="hero-title">
+        <span class="glitch" data-text="動畫">動畫</span><br />
+        <span class="glitch accent-text" data-text="展示">展示</span>
+      </h1>
+      <p class="hero-desc reveal-char">Scroll to explore — 向下探索</p>
+      <div class="scroll-indicator">
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SCROLL REVEAL -->
+  <section class="section reveal-section" id="reveal">
+    <div class="section-label reveal">01 / SCROLL REVEAL</div>
+    <div class="section-content">
+      <h2 class="reveal">Scroll Reveals</h2>
+      <p class="reveal delay-1">當元素進入視窗，動畫自動觸發。<br />使用 <code>IntersectionObserver</code> 實作，零依賴。</p>
+      <div class="card-row">
+        <div class="card reveal delay-1">
+          <div class="card-icon">▲</div>
+          <div class="card-title">Fade Up</div>
+          <div class="card-desc">元素從下方淡入</div>
+        </div>
+        <div class="card reveal delay-2">
+          <div class="card-icon">◆</div>
+          <div class="card-title">Scale In</div>
+          <div class="card-desc">元素縮放出現</div>
+        </div>
+        <div class="card reveal delay-3">
+          <div class="card-icon">●</div>
+          <div class="card-title">Slide Left</div>
+          <div class="card-desc">元素從右滑入</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: TEXT ANIMATIONS -->
+  <section class="section dark-section" id="text">
+    <div class="section-label reveal">02 / TEXT ANIMATIONS</div>
+    <div class="section-content">
+      <h2 class="reveal">文字動畫</h2>
+      <div class="text-demos">
+        <!-- Typewriter -->
+        <div class="text-demo-item reveal">
+          <div class="demo-label">打字機效果</div>
+          <div class="typewriter-wrap">
+            <span class="typewriter" id="typewriter"></span><span class="cursor-blink">|</span>
+          </div>
+        </div>
+        <!-- Wave -->
+        <div class="text-demo-item reveal delay-1">
+          <div class="demo-label">Wave 波浪</div>
+          <div class="wave-text" id="waveText">HELLO WORLD</div>
+        </div>
+        <!-- Neon -->
+        <div class="text-demo-item reveal delay-2">
+          <div class="demo-label">霓虹閃爍</div>
+          <div class="neon-text">NEON GLOW</div>
+        </div>
+        <!-- Glitch demo -->
+        <div class="text-demo-item reveal delay-3">
+          <div class="demo-label">Glitch 故障</div>
+          <div class="glitch-demo glitch" data-text="GLITCH">GLITCH</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: PARALLAX -->
+  <section class="section parallax-section" id="parallax">
+    <div class="parallax-layer layer-back" id="layerBack">
+      <div class="parallax-grid"></div>
+    </div>
+    <div class="parallax-layer layer-mid" id="layerMid">
+      <div class="parallax-circle c1"></div>
+      <div class="parallax-circle c2"></div>
+      <div class="parallax-circle c3"></div>
+    </div>
+    <div class="parallax-layer layer-front" id="layerFront">
+      <div class="section-label reveal">03 / PARALLAX</div>
+      <div class="section-content parallax-content">
+        <h2 class="reveal">視差滾動</h2>
+        <p class="reveal delay-1">多層元素以不同速率移動，創造深度感。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: CSS SHAPES GALLERY -->
+  <section class="section" id="shapes">
+    <div class="section-label reveal">04 / CSS KEYFRAMES</div>
+    <div class="section-content">
+      <h2 class="reveal">純 CSS 動畫</h2>
+      <p class="reveal delay-1">無 JavaScript，僅用 CSS <code>@keyframes</code> 驅動。</p>
+      <div class="shapes-grid">
+        <div class="shape-card reveal delay-1">
+          <div class="shape shape-spin"></div>
+          <span>Spin</span>
+        </div>
+        <div class="shape-card reveal delay-2">
+          <div class="shape shape-morph"></div>
+          <span>Morph</span>
+        </div>
+        <div class="shape-card reveal delay-3">
+          <div class="shape shape-bounce"></div>
+          <span>Bounce</span>
+        </div>
+        <div class="shape-card reveal delay-1">
+          <div class="shape shape-pulse"></div>
+          <span>Pulse</span>
+        </div>
+        <div class="shape-card reveal delay-2">
+          <div class="shape shape-orbit">
+            <div class="orbit-planet"></div>
+          </div>
+          <span>Orbit</span>
+        </div>
+        <div class="shape-card reveal delay-3">
+          <div class="shape shape-loader">
+            <div></div><div></div><div></div>
+          </div>
+          <span>Loader</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: INTERACTIVE CANVAS -->
+  <section class="section dark-section" id="interactive">
+    <div class="section-label reveal">05 / INTERACTIVE</div>
+    <div class="section-content">
+      <h2 class="reveal">互動粒子</h2>
+      <p class="reveal delay-1">移動滑鼠與粒子互動 — 靠近時粒子會逃跑。</p>
+    </div>
+    <canvas id="particleCanvas"></canvas>
+  </section>
+
+  <!-- SECTION: PHOTO GALLERY -->
+  <section class="section gallery-section" id="gallery">
+    <div class="section-label reveal">06 / GALLERY</div>
+    <div class="section-content">
+      <h2 class="reveal">相片回憶</h2>
+      <p class="reveal delay-1">hover 放大・點擊全螢幕・鍵盤 ← → 切換</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal delay-1">
+        <img src="images/photo1.jpg" alt="photo 1" loading="lazy" />
+        <div class="gallery-overlay"><span>&#x2B24;</span></div>
+      </div>
+      <div class="gallery-item reveal delay-2">
+        <img src="images/photo2.jpg" alt="photo 2" loading="lazy" />
+        <div class="gallery-overlay"><span>&#x2B24;</span></div>
+      </div>
+      <div class="gallery-item reveal delay-3">
+        <img src="images/photo3.jpg" alt="photo 3" loading="lazy" />
+        <div class="gallery-overlay"><span>&#x2B24;</span></div>
+      </div>
+      <div class="gallery-item reveal delay-1">
+        <img src="images/photo4.jpg" alt="photo 4" loading="lazy" />
+        <div class="gallery-overlay"><span>&#x2B24;</span></div>
+      </div>
+      <div class="gallery-item reveal delay-2">
+        <img src="images/photo5.jpg" alt="photo 5" loading="lazy" />
+        <div class="gallery-overlay"><span>&#x2B24;</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <button class="lb-btn lb-close" id="lightboxClose">✕</button>
+    <button class="lb-btn lb-prev"  id="lightboxPrev">&#8592;</button>
+    <button class="lb-btn lb-next"  id="lightboxNext">&#8594;</button>
+    <img id="lightboxImg" src="" alt="lightbox" />
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content reveal">
+      <span class="footer-logo">WEB<span class="accent">.</span>ANIM</span>
+      <p>Pure HTML / CSS / JS &nbsp;·&nbsp; No frameworks</p>
+      <p class="footer-small">Built for GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
